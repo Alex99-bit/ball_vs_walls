@@ -126,13 +126,10 @@ class Muro extends Transform{
     r = (int) random(255);
     g = (int) random(255);
     b = (int) random(255);
-    
-    velX = random(-10,10);
-    velY = random(-10,10);
   }
   
   void Draw(){
-    //MueveXY();
+    MueveXY();
     fill(r,g,b);
     rect(x,y,scaleX,scaleY);
   }
@@ -144,14 +141,16 @@ class Muro extends Transform{
   }
 }
 
-Ball[] balls = new Ball[1];
-Muro[] walls = new Muro[10];
+Ball[] balls = new Ball[5];
+Muro[] walls = new Muro[15];
 
 void setup(){
   size(1600,800);
   
   for(int i=0;i<walls.length;i++){
     walls[i] = new Muro(random(width),random(height),random(20,300),random(20,300));
+    walls[i].velX = random(-2,2);
+    walls[i].velY = random(-2,2);
   }
   
   for(int i=0;i<balls.length;i++){
